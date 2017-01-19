@@ -13,7 +13,6 @@ public class CampaignStatisticWriter {
 
     public CampaignStatisticWriter(AnnotationBasedMySqlStatsWriter campaignWriter, AnnotationBasedMySqlStatsWriter networkCampaignWriter) {
         this.campaignWriter = campaignWriter;
-
         this.networkCampaignWriter = networkCampaignWriter;
     }
 
@@ -25,6 +24,11 @@ public class CampaignStatisticWriter {
 
         campaignWriter.writeStats(campaignStatistics);
         networkCampaignWriter.writeStats(networkCampaignStatistics);
+    }
+
+    public void prepareForShutdown() {
+        campaignWriter.prepareForShutdown();
+        networkCampaignWriter.prepareForShutdown();
     }
 
     private static NetworkCampaignStatistic transform(CampaignStatistic campaignStatistic) {

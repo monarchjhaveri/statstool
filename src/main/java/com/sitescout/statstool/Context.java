@@ -11,12 +11,6 @@ import java.io.IOException;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 
-/*
-dbpools.uiStats.url=jdbc:mysql://localhost:3306/ssdsp_uistats
-dbpools.uiStats.username=root
-dbpools.uiStats.password=
- */
-
 public class Context {
     private static Context instance;
 
@@ -54,4 +48,7 @@ public class Context {
         return campaignStatisticWriter;
     }
 
+    public ScheduledExecutorService getExecutorService() {
+        return executorService;
+    }
 }

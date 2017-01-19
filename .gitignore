@@ -1,3 +1,5 @@
 .idea/
 target/
 *.iml
+statstool-error.log
+statstool.log
